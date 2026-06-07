@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kitabi - Catalogue</title>
+ <link rel="stylesheet" href="../style/style.css">
+</head>
+<body>
+
+  <!-- Barre de navigation -->
+  <nav id="navbar"></nav>
+
+  <div class="page">
+    <h1 class="page-title">Catalogue</h1>
+    <p class="page-sub" id="compteur">Chargement des livres...</p>
+
+    <!-- Barre de recherche et filtres de tri -->
+    <div class="search-bar">
+      <input type="search" id="recherche" placeholder="Rechercher un titre ou un auteur...">
+      <select id="tri">
+        <option value="">Par défaut</option>
+        <option value="prix-asc">Prix croissant</option>
+        <option value="prix-desc">Prix décroissant</option>
+        <option value="note">Mieux notés</option>
+        <option value="titre">Titre A–Z</option>
+      </select>
+    </div>
+
+    <!-- Filtres par catégories de livres -->
+    <div class="filtres" id="filtres">
+      <button class="filtre-btn active" data-cat="Tous">Tous</button>
+      <button class="filtre-btn" data-cat="Roman">Roman</button>
+      <button class="filtre-btn" data-cat="Histoire">Histoire</button>
+      <button class="filtre-btn" data-cat="Science">Science</button>
+      <button class="filtre-btn" data-cat="Philosophie">Philosophie</button>
+      <button class="filtre-btn" data-cat="Jeunesse">Jeunesse</button>
+      <button class="filtre-btn" data-cat="Poésie">Poésie</button>
+      <button class="filtre-btn" data-cat="Biographie">Biographie</button>
+    </div>
+
+    <!-- Grille d'affichage dynamique des livres -->
+    <div class="grid-livres" id="grille"></div>
+  </div>
+
+  
+  <footer>
+    <div class="f-inner">
+      <span class="f-logo">📖 Kitabi</span>
+      <nav>
+        <a href="index.html">Accueil</a>
+        <a href="catalogue.html">Catalogue</a>
+        <a href="favoris.html">Favoris</a>
+        <a href="compte.html">Mon Compte</a>
+      </nav>
+      <p>© 2025 Kitabi — Algérie</p>
+    </div>
+  </footer>
+
+ 
+  <script src="../javascript/books.js" defer></script>
+ <script src="../javascript/app.js" defer></script>
+  <script src="../javascript/catalogue.js" defer></script>
+</body>
+</html>

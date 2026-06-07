@@ -1,0 +1,512 @@
+/*  POLICES & STYLE GLOBAL (ZOOM COHÉRENT A 105%)  */
+@import url('https://googleapis.com');
+
+html {
+  font-size: 17px; /* Augmente la taille de base (au lieu de 16px par défaut) */
+  scroll-behavior: smooth;
+}
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+
+body { 
+  font-family: 'Inter', sans-serif; 
+  background: #ebdcc3 !important; /* Beige chaud uniforme */
+  color: #1c1a17; 
+  min-height: 100vh; 
+  padding-top: 80px; 
+}
+
+h1, h2, h3, h4 { 
+  font-family: 'Cormorant Garamond', serif; 
+}
+
+a { 
+  text-decoration: none; 
+  color: inherit; 
+}
+
+.hidden { 
+  display: none !important; 
+}
+
+
+.page { 
+  max-width: 1200px; 
+  margin: auto; 
+  padding: 40px 20px; 
+}
+
+.page-title { 
+  font-size: 2.8rem; 
+  font-weight: 700; 
+  margin-bottom: 4px; 
+}
+
+.page-sub { 
+  color: #8a837a; 
+  font-size: .875rem; 
+  margin-bottom: 32px; 
+}
+
+/*  ÉCRAN DE DÉMARRAGE ANIMÉ */
+#splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #8b1a2b !important; /* Fond bordeaux Kitabi */
+  z-index: 99999; /* Par-dessus tout le reste */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.splash-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 4.5rem;
+  font-weight: 700;
+  color: #faf6ee;
+  letter-spacing: 2px;
+  animation: netflixZoom 1.5s ease-in-out forwards;
+  opacity: 0;
+}
+
+.splash-sub {
+  color: rgba(250, 246, 238, 0.6);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-top: 12px;
+  animation: fadeInSub 1s ease-out 0.5s forwards;
+  opacity: 0;
+}
+
+@keyframes netflixZoom {
+  0% { transform: scale(0.6); opacity: 0; filter: blur(4px); }
+  30% { opacity: 1; filter: blur(0); }
+  100% { transform: scale(1.1); opacity: 1; }
+}
+
+@keyframes fadeInSub { 
+  to { opacity: 1; } 
+}
+
+.fade-out-splash { 
+  opacity: 0 !important; 
+  visibility: hidden !important; 
+}
+
+/*   BARRE NAVIGATION */
+#navbar { 
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  z-index: 100; 
+  background: #8b1a2b !important; 
+  border-bottom: 2px solid #b8912a; 
+  box-shadow: 0 4px 20px rgba(139, 26, 43, 0.25);
+}
+
+.nav-inner { 
+  max-width: 1200px; 
+  margin: auto; 
+  padding: 0 20px; 
+  height: 64px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+}
+
+.logo { 
+  font-family: 'Cormorant Garamond', serif; 
+  font-size: 1.5rem; 
+  font-weight: 700; 
+  color: #faf6ee !important; 
+}
+
+.nav-links { 
+  display: flex; 
+  gap: 24px; 
+}
+
+.nav-links a { 
+  font-size: .875rem; 
+  font-weight: 500; 
+  color: #ede5d4 !important; 
+  position: relative;
+  padding: 6px 0;
+  transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #b8912a;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover { color: #b8912a !important; }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-icons { display: flex; align-items: center; gap: 16px; }
+.icon-btn { position: relative; font-size: 1.1rem; color: #faf6ee !important; transition: transform 0.2s ease; }
+.icon-btn:hover { color: #b8912a !important; transform: scale(1.15); }
+
+.badge { 
+  position: absolute; 
+  top: -6px; 
+  right: -8px; 
+  background: #b8912a; 
+  color: #faf6ee; 
+  font-size: .6rem; 
+  font-weight: 700; 
+  min-width: 16px; 
+  height: 16px; 
+  border-radius: 50%; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+}
+
+/* --- EFFETS DES BOUTONS --- */
+.btn { 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 6px; 
+  padding: 10px 24px; 
+  border-radius: 20px; 
+  font-weight: 600; 
+  font-size: .85rem; 
+  cursor: pointer; 
+  border: none; 
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important; 
+}
+
+.btn-primary { background: #8b1a2b; color: #faf6ee; }
+.btn-primary:hover { 
+  background: #6d1520 !important; 
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(139, 26, 43, 0.4) !important;
+}
+
+.btn-outline { background: transparent; color: #8b1a2b; border: 2px solid #8b1a2b; }
+.btn-outline:hover { 
+  background: #8b1a2b !important; 
+  color: #faf6ee !important;
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(139, 26, 43, 0.15);
+}
+
+.btn-outline-sm { padding: 5px 12px; border-radius: 14px; border: 1px solid #faf6ee; color: #faf6ee; font-size: .75rem; background: transparent; cursor: pointer; }
+.btn-outline-sm:hover { background: #faf6ee; color: #8b1a2b; }
+
+/* ==========================================================================
+   4. COMPOSANTS DE L'ACCUEIL (HERO, SECTIONS BLANCHES, SECTIONS DESIGN)
+   ========================================================================== */
+.hero { min-height: 100vh; display: flex; align-items: center; background: linear-gradient(135deg, #f4efe4 0%, #ede5d4 50%, #e8dcc8 100%); padding: 80px 20px 60px; position: relative; }
+.hero-inner { max-width: 1200px; margin: auto; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.hero-tag { display: inline-block; padding: 6px 16px; border-radius: 20px; font-size: .75rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; background: rgba(139,26,43,.08); color: #8b1a2b; border: 1px solid rgba(139,26,43,.2); margin-bottom: 20px; }
+.hero h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.1; margin-bottom: 20px; }
+.hero h1 span { color: #8b1a2b; }
+.hero p { font-size: 1.1rem; color: #6b6050; line-height: 1.7; margin-bottom: 36px; max-width: 480px; }
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+.hero-stats { display: flex; gap: 24px; margin-top: 40px; }
+.hero-stat .val { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 700; color: #8b1a2b; }
+.hero-stat .lbl { font-size: .75rem; color: #8a837a; }
+
+.book-3d { display: flex; justify-content: center; align-items: center; perspective: 800px; }
+.book-inner { width: 200px; height: 270px; position: relative; transform-style: preserve-3d; animation: flotter 5s ease-in-out infinite; }
+@keyframes flotter { 0%,100% { transform: translateY(0) rotateY(20deg); } 50% { transform: translateY(-14px) rotateY(20deg); } }
+.book-face { position: absolute; width: 100%; height: 100%; background: linear-gradient(160deg, #8b1a2b 0%, #6d1520 60%, #4a0e18 100%); border-radius: 2px 10px 10px 2px; box-shadow: 8px 12px 40px rgba(109,21,32,.35); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 24px 20px; }
+.book-title { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; color: #f7edd4; text-align: center; }
+.book-sub { font-size: .7rem; color: rgba(247,237,212,.45); letter-spacing: .3em; }
+.book-line { width: 60%; height: 1px; background: linear-gradient(to right, transparent, rgba(184,145,42,.6), transparent); }
+
+.section { 
+  max-width: 1200px; 
+  margin: 40px auto !important; 
+  padding: 40px 30px !important; 
+  background: #fcf8f2;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(139, 26, 43, 0.04);
+  border: 1px solid #d8cfbe;
+}
+.section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 32px; }
+.section-header h2 { font-size: 2.2rem; color: #8b1a2b; font-weight: 700; }
+.section-header a { font-size: .875rem; color: #8b1a2b; }
+.section-subtitle { color: #8a837a; font-size: 0.85rem; margin-top: 4px; }
+
+/* --- GRILLE ET CARTE DES LIVRES RE-OPTIMISÉES --- */
+.grid-livres { 
+  display: grid !important; 
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)) !important; 
+  gap: 16px !important; 
+  width: 100% !important;
+}
+
+.card { 
+  background: #fdfaf4 !important; 
+  border: 1px solid #e2d9c9 !important; 
+  border-radius: 14px !important; 
+  overflow: hidden !important; 
+  position: relative !important; 
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  transition: transform .25s, box-shadow .25s; 
+}
+.card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(28,26,23,.1); }
+
+.card-cover { height: 160px !important; position: relative !important; overflow: hidden !important; display: flex !important; align-items: flex-end !important; width: 100% !important; }
+.card-cover img { position: absolute !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; object-fit: cover !important; }
+.card-cover-text { position: relative !important; z-index: 1 !important; padding: 12px !important; background: linear-gradient(to top, rgba(0,0,0,.6), transparent) !important; width: 100% !important; }
+.card-cover-text span { display: block; color: #fff; font-size: .8rem; font-weight: 600; }
+.card-cover-text small { color: rgba(255,255,255,.7); font-size: .7rem; }
+
+.heart-btn { position: absolute; top: 8px; right: 8px; z-index: 2; background: rgba(253,250,244,.88); border: 1px solid rgba(216,207,190,.8); border-radius: 50%; width: 30px; height: 30px; cursor: pointer; color: #8a837a; display: flex; align-items: center; justify-content: center; }
+.heart-btn.active, .heart-btn:hover { color: #8b1a2b; background: rgba(139,26,43,.1); }
+
+
+
+.card-body { padding: 12px !important; display: flex !important; flex-direction: column !important; flex: 1 !important; }.badge-cat { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: .65rem; font-weight: 600; text-transform: uppercase; background: rgba(139,26,43,.08); color: #8b1a2b; border: 1px solid rgba(139,26,43,.2); margin-bottom: 6px; width: fit-content; }.card-body h3 { font-size: .95rem; font-weight: 600; margin-bottom: 4px; }.auteur { font-size: .75rem; color: #8a837a; margin-bottom: 10px; }.card-footer { display: flex !important; justify-content: space-between !important; align-items: center !important; padding-top: 10px !important; border-top: 1px solid #ebe4d6 !important; margin-top: auto !important; }.prix { color: #8b1a2b; font-size: .95rem; }/* --- BARRE DE CATALOGUE (RECHERCHE) --- */.search-bar { display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }.search-bar input, .search-bar select { padding: 12px 16px; border-radius: 12px; border: 1px solid #d8cfbe; background: #fdfaf4; font-size: .875rem; outline: none; color: #1c1a17; }.search-bar input { flex: 1; min-width: 200px; }.filtres { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }.filtre-btn { padding: 7px 18px; border-radius: 20px; border: 1px solid #d8cfbe; background: #fdfaf4; font-size: .8rem; cursor: pointer; color: #4a4540; transition: all .2s; }.filtre-btn.active, .filtre-btn:hover { background: rgba(139,26,43,.09); border-color: #8b1a2b; color: #8b1a2b; }/* --- GRILLE DES UNIVERS (CATEGORIES) --- */.section-categories { background: #ebdcc3 !important; padding: 60px 20px; border-top: 1px solid #d8cfbe; border-bottom: 1px solid #d8cfbe; }.categories-container { max-width: 1200px; margin: auto; }.categories-header { text-align: center; margin-bottom: 36px; }.categories-header h2 { font-size: 2.2rem; margin-top: 12px; color: #8b1a2b; }.grid-cats { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px; margin-top: 12px; }.cat-card { background: #fdfaf4; border: 1px solid rgba(216,207,190,.8); border-radius: 16px; padding: 18px 12px; text-align: center; position: relative; overflow: hidden; transition: transform .2s; }.cat-card:hover { transform: translateY(-5px); box-shadow: 0 10px 28px rgba(28,26,23,.1); }.cat-card .cat-bar { position: absolute; top: 0; left: 0; right: 0; height: 3px; border-radius: 16px 16px 0 0; }.cat-icon { font-size: 1.6rem; margin-bottom: 8px; }.cat-name { font-size: .8rem; font-weight: 600; }.cat-desc { font-size: .68rem; color: #9c9285; margin: 3px 0 6px; }.cat-count { font-size: .65rem; font-weight: 700; padding: 2px 8px; border-radius: 8px; display: inline-block; }
+/* ==========================================================================5. PAGE PANIER========================================================================== */.panier-layout-grid { display: grid; grid-template-columns: 1fr 360px; gap: 32px; align-items: start; }.articles-list-container { display: flex; flex-direction: column; gap: 16px; }.panier-item-card { display: flex; gap: 20px; background: #fdfaf4; border: 1px solid #d8cfbe; border-radius: 16px; padding: 16px; align-items: center; box-shadow: 0 4px 12px rgba(28,26,23,0.02); }.item-img-area { width: 75px; height: 105px; border-radius: 8px; overflow: hidden; flex-shrink: 0; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }.item-pic { width: 100%; height: 100%; object-fit: cover; }.item-pic-fallback { width: 100%; height: 100%; background: linear-gradient(135deg, #8b1a2b, #4a0e18); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; }.item-details-area { flex: 1; display: flex; flex-direction: column; gap: 14px; }.item-meta-info h4 { font-size: 1.15rem; font-weight: 700; color: #1c1a17; margin-bottom: 2px; }.item-meta-info h4 a:hover { color: #8b1a2b; }.item-author-txt { font-size: 0.8rem; color: #8a837a; }.item-controls-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }.custom-qte-picker { display: flex; align-items: center; background: #f4efe4; border: 1px solid #d8cfbe; border-radius: 20px; overflow: hidden; }.custom-qte-picker button { width: 36px; height: 32px; background: none; border: none; cursor: pointer; font-size: 1.1rem; font-weight: 600; color: #4a4540; }.custom-qte-picker button:hover { background: rgba(139,26,43,0.06); }.qte-value { width: 30px; text-align: center; font-size: 0.9rem; font-weight: 600; }.item-subtotal-price { font-size: 1.05rem; font-weight: 700; color: #1c1a17; }.custom-delete-btn { background: none; border: none; cursor: pointer; color: #9c9285; font-size: 0.85rem; display: flex; align-items: center; gap: 4px; padding: 6px 12px; border-radius: 12px; }.custom-delete-btn:hover { color: #b71c1c; background: rgba(183,28,28,0.05); }.recap-sidebar { position: sticky; top: 96px; }.recap-card { padding: 28px 24px !important; border: 1px solid #d8cfbe; background: #fdfaf4; }.recap-card h3 { font-size: 1.4rem; margin-bottom: 20px; border-bottom: 1px solid #d8cfbe; padding-bottom: 10px; }.recap-items-lines { display: flex; flex-direction: column; gap: 10px; max-height: 180px; overflow-y: auto; margin-bottom: 16px; }.recap-summary-line { display: flex; justify-content: space-between; font-size: 0.85rem; color: #6b6050; }.summary-title-txt { max-width: 180px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }.summary-title-txt small { color: #9c9285; font-weight: 600; }.recap-total-line { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #d8cfbe; padding-top: 16px; margin-bottom: 24px; }.recap-total-line span { font-weight: 600; font-size: 0.95rem; }.recap-total-line strong { font-family: 'Cormorant Garamond', serif; font-size: 1.75rem; color: #8b1a2b; }.btn-checkout-action { width: 100%; justify-content: center; padding: 12px 24px; font-size: 0.9rem; }.btn-locked-action { font-size: 0.8rem; background: #5c534c; }.btn-locked-action:hover { background: #473f39; }.basket-saved-notice { text-align: center; font-size: 0.72rem; color: #9c9285; margin-top: 6px; }.btn-continuer-achats { width: 100%; justify-content: center; margin-top: 12px; border: 1px solid #d8cfbe; color: #8a837a; background: none; font-size: 0.8rem; }.btn-continuer-achats:hover { background: rgba(0,0,0,0.02); }
+/* ==========================================================================6. FORMULAIRES DE CONNEXION, ALERTES & COMPTES TEST========================================================================== */.form-card { background: #fdfaf4; border: 1px solid #d8cfbe; border-radius: 16px; padding: 24px; box-shadow: 0 8px 24px rgba(28,26,23,.05); }.form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }.form-group label { font-size: .75rem; font-weight: 600; text-transform: uppercase; color: #8a837a; }.form-group input { padding: 10px 14px; border-radius: 8px; border: 1px solid #d8cfbe; background: rgba(244,239,228,.6); font-size: .85rem; outline: none; }.form-group input:focus { border-color: #8b1a2b; }.err-msg { font-size: .75rem; color: #b71c1c; margin-top: 2px; }.auth-page { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 80vh; padding: 40px 20px; }.auth-logo { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: #8b1a2b; margin-bottom: 6px; }.auth-sub { color: #8a837a; font-size: .85rem; margin-bottom: 24px; text-align: center; }.auth-card { width: 100%; max-width: 400px; }.auth-card h2 { font-size: 1.6rem; margin-bottom: 20px; text-align: center; }.btn-block { width: 100%; justify-content: center; }.auth-switch-text { text-align: center; font-size: 0.85rem; color: #8a837a; margin-top: 16px; }.auth-switch-text a { color: #8b1a2b; font-weight: 600; }.alerte { padding: 10px 14px; border-radius: 8px; font-size: .8rem; margin-bottom: 16px; background: rgba(183,28,28,.05); color: #b71c1c; border: 1px solid rgba(183,28,28,.15); }.demo-box { margin-top: 16px; padding: 10px; border-radius: 10px; background: rgba(139,26,43,0.03); border: 1px solid rgba(139,26,43,0.08); }.demo-title { font-size: 0.7rem; color: #8a837a; margin-bottom: 6px; }.demo-btn { display: block; width: 100%; text-align: left; font-size: 0.7rem; padding: 5px 8px; border-radius: 6px; border: 1px solid rgba(139,26,43,0.08); background: #fdfaf4; color: #6b6050; cursor: pointer; margin-bottom: 4px; }.force-barres { display: flex; gap: 4px; margin-top: 6px; }.barre-force { flex: 1; height: 3px; border-radius: 2px; background: #d8cfbe; }
+/* ==========================================================================7. SECTIONS COMMERCIALES ET ACCESSOIRES (AVANTAGES & POIDS VIDE)========================================================================== */.vide-box { text-align: center; padding: 60px 20px; background: #fdfaf4; border: 1px solid #d8cfbe; border-radius: 16px; }.vide-box .icon { font-size: 3rem; margin-bottom: 12px; opacity: 0.4; }.vide-box h2 { font-size: 1.6rem; margin-bottom: 8px; }.vide-box p { font-size: 0.9rem; color: #8a837a; margin-bottom: 24px; }
+
+/* ==========================================================================
+   CORRECTION DU BLOC DES AVANTAGES (PIED DE PAGE ACCUEIL)
+   ========================================================================== */
+
+/* Conteneur principal qui crée de l'espace autour du bloc */
+.avantages {
+  background: transparent !important; 
+  padding: 40px 20px !important;
+  width: 100% !important;
+  max-width: 1200px !important;
+  margin: 30px auto !important;
+}
+
+/* La boîte globale qui force l'alignement horizontal (Grille à 4 colonnes) */
+.avantages-inner {
+  max-width: 1200px !important;
+  margin: auto !important;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important; /* Devient automatique et s'adapte */
+  gap: 20px !important;
+  background: #fdfaf4 !important; /* Fond beige très clair */
+  border-radius: 18px !important;
+  padding: 24px !important;
+  border: 2px solid #8b1a2b !important; /* Bordure bordeaux unifiée */
+  box-shadow: 0 8px 30px rgba(139, 26, 43, 0.05) !important;
+}
+
+/* Style de chaque petit casier d'information */
+.av-item {
+  text-align: center !important;
+  padding: 16px !important;
+  background: #ebdcc3 !important; /* Fond beige chaud */
+  border-radius: 12px !important;
+  border: 1px solid #d8cfbe !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Petit effet interactif au survol des casiers */
+.av-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(139, 26, 43, 0.1);
+}
+
+/* Ajustement de l'icône émoji du haut */
+.av-icon {
+  font-size: 2rem !important; /* Plus grand et bien centré */
+  margin-bottom: 10px !important;
+  display: block !important;
+}
+
+/* Titre de l'avantage (ex: Livraison partout) */
+.av-title {
+  font-size: 0.95rem !important;
+  font-weight: 700 !important;
+  color: #8b1a2b !important; /* Écrit en bordeaux */
+  margin-bottom: 4px !important;
+}
+
+/* Description de l'avantage (ex: Dans les 58 wilayas) */
+.av-desc {
+  font-size: 0.8rem !important;
+  color: #6b6050 !important;
+  margin-top: 2px !important;
+  line-height: 1.4 !important;
+}
+
+/* --- CORRECTION SECONDAIRE POUR TON FOOTER TOUT EN BAS --- */
+footer .f-inner {
+  max-width: 1200px !important;
+  margin: auto !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 16px !important;
+}
+
+/* Mode responsive pour les téléphones portables */
+@media (max-width: 768px) {
+  .avantages-inner {
+    grid-template-columns: 1fr 1fr !important; /* 2 par 2 sur mobile */
+  }
+}
+@media (max-width: 480px) {
+  .avantages-inner {
+    grid-template-columns: 1fr !important; /* 1 seul par ligne sur petit écran */
+  }
+}
+/* ==========================================================================
+   STYLE DU FOOTER ENRICHI AVEC INSTAGRAM ET TÉLÉPHONE
+   ========================================================================== */
+footer {
+  background: #ede5d4 !important;
+  border-top: 1px solid #d8cfbe !important;
+  padding: 24px 20px !important;
+  margin-top: 60px !important;
+  width: 100% !important;
+}
+
+footer .f-inner {
+  max-width: 1200px !important;
+  margin: auto !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 20px !important;
+}
+
+footer .f-logo {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 1.3rem !important;
+  font-weight: 700 !important;
+  color: #8b1a2b !important;
+}
+
+/* Alignement horizontal des réseaux sociaux au milieu */
+.f-socials {
+  display: flex !important;
+  gap: 24px !important;
+  align-items: center !important;
+}
+
+.social-link {
+  font-size: 0.85rem !important;
+  font-weight: 500 !important;
+  color: #4a4540 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  padding: 6px 12px !important;
+  border-radius: 8px !important;
+  background: rgba(139, 26, 43, 0.03) !important;
+  border: 1px solid rgba(139, 26, 43, 0.08) !important;
+  transition: all 0.2s ease !important;
+}
+
+/* Animations d'interaction avec le client au survol */
+.social-link:hover {
+  color: #faf6ee !important;
+  background: #8b1a2b !important; /* Devient bordeaux au survol */
+  border-color: #8b1a2b !important;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 4px 12px rgba(139, 26, 43, 0.15);
+}
+
+.handle-txt, .phone-txt {
+  font-weight: 600 !important;
+}
+
+footer p {
+  font-size: 0.78rem !important;
+  color: #9c9285 !important;
+}
+
+/* Adaptation pour les smartphones */
+@media (max-width: 768px) {
+  footer .f-inner {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 16px !important;
+  }
+  .f-socials {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+}/* ==========================================================================
+   PAGE FAVORIS : STYLE ET CENTRAGE DES COUPS DE CŒUR
+   ========================================================================== */
+
+/* Centrage parfait de la boîte quand les favoris sont vides */
+.page .vide {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  padding: 60px 24px !important;
+  background: #fdfaf4 !important; /* Fond beige très clair */
+  border: 1px solid #d8cfbe !important;
+  border-radius: 16px !important;
+  max-width: 600px !important;
+  margin: 40px auto !important; /* Centre la boîte au milieu de l'écran */
+  box-shadow: 0 8px 24px rgba(139, 26, 43, 0.02) !important;
+}
+
+/* Style du grand cœur icône */
+.page .vide .icon {
+  font-size: 3.5rem !important;
+  color: #8b1a2b !important; /* Couleur bordeaux Kitabi */
+  margin-bottom: 16px !important;
+  display: block !important;
+  animation: heartPulse 2s infinite ease-in-out; /* Petit effet de battement discret */
+}
+
+/* Titre principal de la boîte */
+.page .vide h2 {
+  font-size: 1.6rem !important;
+  color: #1c1a17 !important;
+  margin-bottom: 8px !important;
+  font-family: 'Cormorant Garamond', serif !important;
+  font-weight: 700 !important;
+}
+
+/* Description textuelle sous le titre */
+.page .vide p {
+  font-size: 0.9rem !important;
+  color: #8a837a !important;
+  margin-bottom: 24px !important;
+  max-width: 420px !important;
+  line-height: 1.5 !important;
+}
+
+/* Forcer le bouton à se centrer et à s'aérer */
+.page .vide .btn {
+  margin-top: 4px !important;
+  padding: 12px 28px !important;
+  justify-content: center !important;
+}
+
+/* Animation de pulsation douce pour le cœur */
+@keyframes heartPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+

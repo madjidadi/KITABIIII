@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kitabi - Connexion</title>
+  <link rel="stylesheet" href="../style/style.css">
+</head>
+<body>
+
+  <!-- Barre de navigation  -->
+  <nav id="navbar"></nav>
+
+  <div class="auth-page">
+    <a href="index.html" class="auth-logo">📖 Kitabi</a>
+    <p class="auth-sub">Bienvenue de retour sur Kitabi</p>
+
+    <div class="form-card auth-card">
+      <h2>Connexion</h2>
+      
+      <!-- Zone d'affichage des messages d'erreur -->
+      <div id="err-login" class="alerte" style="display:none"></div>
+
+      <form id="form-login" novalidate>
+        <div class="form-group">
+          <label for="l-email">Adresse email</label>
+          <input type="email" id="l-email" placeholder="votre@email.dz" required>
+        </div>
+        <div class="form-group">
+          <label for="l-mdp">Mot de passe</label>
+          <input type="password" id="l-mdp" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Se connecter</button>
+      </form>
+
+      <p class="auth-switch-text">
+        Pas encore de compte ? <a href="inscription.html">S'inscrire ici</a>
+      </p>
+
+      <!-- Comptes de démonstration -->
+      <div class="demo-box">
+        <p class="demo-title">Comptes de démonstration :</p>
+        <button onclick="demoLogin('ahmed@kitabi.dz','Password123!')" class="demo-btn">ahmed@kitabi.dz — Password123!</button>
+        <button onclick="demoLogin('fatima@kitabi.dz','Kitabi2024#')" class="demo-btn">fatima@kitabi.dz — Kitabi2024#</button>
+      </div>
+    </div>
+  </div>
+
+
+  <footer>
+    <div class="f-inner">
+      <span class="f-logo">📖 Kitabi</span>
+      <nav>
+        <a href="index.html">Accueil</a>
+        <a href="catalogue.html">Catalogue</a>
+        <a href="favoris.html">Favoris</a>
+      </nav>
+      <p>© 2026 Kitabi — Algérie</p>
+    </div>
+  </footer>
+
+   <script src="../javascript/books.js" defer></script>
+ <script src="../javascript/app.js" defer></script>
+  <script src="../javascript/connexion.js" defer></script>
+
+</body>
+</html>
+

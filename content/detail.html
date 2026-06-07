@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kitabi - Détail livre</title>
+  <!-- Liaison vers les deux fichiers CSS séparés -->
+  <link rel="stylesheet" href="../style/style.css">
+  <link rel="stylesheet" href="../style/detail.css">
+</head>
+<body>
+
+  <!-- Barre de navigation dynamique -->
+  <nav id="navbar"></nav>
+
+  <div class="page">
+   
+    <a href="catalogue.html" class="lien-retour">← Retour au catalogue</a>
+
+    <div id="contenu"></div>
+
+    
+    <div id="similaires" class="section-similaires">
+      <h2>Dans la même catégorie</h2>
+      <div class="grid-livres" id="grid-sim"></div>
+    </div>
+  </div>
+
+  
+  <footer>
+    <div class="f-inner">
+      <span class="f-logo">📖 Kitabi</span>
+      <nav>
+        <a href="index.html">Accueil</a>
+        <a href="catalogue.html">Catalogue</a>
+        <a href="favoris.html">Favoris</a>
+        <a href="connexion.html">Connexion</a>
+      </nav>
+      <p>© 2026 Kitabi — Algérie</p>
+    </div>
+  </footer>
+
+ 
+ <script src="../javascript/books.js" defer></script>
+ <script src="../javascript/app.js" defer></script>
+ <script src="../javascript/detail.js" defer></script>
+</body>
+</html>

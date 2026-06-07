@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kitabi - Librairie en ligne</title>
+  
+ <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+
+ 
+  <div id="splash-screen">
+    <div class="splash-logo">📖 Kitabi</div>
+    <div class="splash-sub">كتابي</div>
+  </div>
+
+  <!-- Barre de navigation  -->
+  <nav id="navbar"></nav>
+
+  
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-tag">La première librairie en ligne d'Algérie</div>
+        <h1>Des livres qui<br><span>changent le monde</span></h1>
+        <p>Explorez notre catalogue soigneusement sélectionné — auteurs algériens et grands classiques mondiaux. Livraison dans les 58 wilayas.</p>
+        <div class="hero-btns">
+          <a href="content/catalogue.html" class="btn btn-primary">Explorer le catalogue →</a>
+
+          <a href="content/connexion.html" class="btn btn-outline">Se connecter</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><span class="val">1000+</span><span class="lbl">Livres</span></div>
+          <div class="hero-stat"><span class="val">58</span><span class="lbl">Wilayas</span></div>
+          <div class="hero-stat"><span class="val">4.8★</span><span class="lbl">Note</span></div>
+          <div class="hero-stat"><span class="val">100%</span><span class="lbl">Authentiques</span></div>
+        </div>
+      </div>
+      <div class="book-3d">
+        <div class="book-inner">
+          <div class="book-face">
+            <div class="book-line"></div>
+            <div class="book-title">Kitabi</div>
+            <div class="book-sub">كتابي</div>
+            <div class="book-line"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--  Livres À LA UNE -->
+  <div class="section">
+    <div class="section-header">
+      <div>
+        <h2>À la une</h2>
+        <p class="section-subtitle">Notre sélection du moment</p>
+      </div>
+      <a href="content/catalogue.html" class="btn btn-outline btn-sm">Voir tout →</a>
+    </div>
+    <div class="grid-livres" id="grid-une"></div>
+  </div>
+
+  <!-- Parcourir par CATÉGORIES -->
+  <div class="section-categories">
+    <div class="categories-container">
+      <div class="categories-header">
+        <div class="hero-tag">Notre catalogue</div>
+        <h2>Explorez par univers</h2>
+        <p class="section-subtitle">Du roman historique à la poésie — trouvez le genre qui vous correspond.</p>
+      </div>
+      <div class="grid-cats" id="grid-cats"></div>
+    </div>
+  </div>
+
+  <!--  Livres TENDANCES -->
+  <div class="section">
+    <div class="section-header">
+      <div>
+        <h2>Tendances</h2>
+        <p class="section-subtitle">Les plus populaires ce mois</p>
+      </div>
+    </div>
+    <div class="grid-livres" id="grid-tendances"></div>
+  </div>
+
+  <!-- Les AVANTAGES de la boutique -->
+  <div class="avantages">
+    <div class="avantages-inner">
+      <div class="av-item"><div class="av-icon">🚚</div><div class="av-title">Livraison partout</div><div class="av-desc">Dans les 58 wilayas</div></div>
+      <div class="av-item"><div class="av-icon">🏆</div><div class="av-title">Livres authentiques</div><div class="av-desc">Sélection rigoureuse</div></div>
+      <div class="av-item"><div class="av-icon">📚</div><div class="av-title">Catalogue riche</div><div class="av-desc">Plus de 1000 titres</div></div>
+      <div class="av-item"><div class="av-icon">💰</div><div class="av-title">Meilleurs prix</div><div class="av-desc">Compétitifs et transparents</div></div>
+    </div>
+  </div>
+
+
+  <footer>
+    <div class="f-inner">
+      <span class="f-logo">📖 Kitabi</span>
+      <div class="f-socials">
+        <a href="https://instagram.com" target="_blank" class="social-link" title="Suivez-nous sur Instagram">
+          📸 Instagram : <span class="handle-txt">@kitabi.2026</span>
+        </a>
+        <a href="tel:0556359477" class="social-link" title="Contactez-nous par Téléphone">
+          📞 Tél : <span class="phone-txt">0556 35 94 77</span>
+        </a>
+      </div>
+      <p>© 2026 Kitabi — Algérie</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const splash = document.getElementById('splash-screen');
+      setTimeout(() => {
+        if (splash) {
+          splash.classList.add('fade-out-splash');
+          setTimeout(() => splash.remove(), 500);
+        }
+      }, 1800);
+    });
+  </script>
+
+  <script src="javascript/books.js" defer></script>
+ <script src="javascript/app.js" defer></script>
+  <script src="javascript/accueil.js" defer></script>
+</body>
+</html>

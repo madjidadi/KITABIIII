@@ -1,0 +1,166 @@
+/* PAGE DÉTAIL LIVRE */
+
+
+.detail-grid { 
+  display: grid; 
+  grid-template-columns: 280px 1fr; 
+  gap: 60px; 
+  align-items: start; 
+}
+
+/* Style de la couverture  */
+.detail-cover { 
+  width: 280px; 
+  height: 370px; 
+  border-radius: 12px; 
+  background: linear-gradient(160deg, #8b1a2b, #4a0e18); 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
+  color: #f7edd4; 
+  padding: 24px; 
+  gap: 8px; 
+  overflow: hidden; 
+  position: relative;
+}
+
+
+.detail-cover img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important; /* L'image s'étire et remplit tout le cadre */
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 12px;
+}
+
+.detail-cover span { 
+  font-family: 'Cormorant Garamond', serif; 
+  font-size: 1.3rem; 
+  font-weight: 700; 
+  text-align: center; 
+}
+
+.detail-cover small { 
+  font-size: .75rem; 
+  opacity: .6; 
+}
+
+
+/* Zone d'informations textuelles */
+.detail-info .cat-badge { 
+  display: inline-block; 
+  padding: 4px 14px; 
+  border-radius: 16px; 
+  font-size: .72rem; 
+  text-transform: uppercase; 
+  letter-spacing: .1em; 
+  font-weight: 600; 
+  background: rgba(139,26,43,.08); 
+  color: #8b1a2b; 
+  border: 1px solid rgba(139,26,43,.2); 
+  margin-bottom: 14px; 
+}
+
+.detail-info h1 { 
+  font-size: 2.5rem; 
+  line-height: 1.15; 
+  margin-bottom: 8px; 
+}
+
+.detail-info .a { 
+  font-size: 1.1rem; 
+  color: #4a4540; 
+  margin-bottom: 12px; 
+}
+
+.detail-info p { 
+  color: #6b6050; 
+  line-height: 1.7; 
+  margin-bottom: 24px; 
+  font-size: .9rem; 
+}
+
+/* Grand prix bordeaux */
+.detail-prix { 
+  font-family: 'Cormorant Garamond', serif; 
+  font-size: 2.5rem; 
+  font-weight: 700; 
+  color: #8b1a2b; 
+  margin-bottom: 20px; 
+}
+
+
+.detail-meta { 
+  display: flex; 
+  gap: 24px; 
+  margin: 20px 0; 
+  padding: 16px 0; 
+  border-top: 1px solid #d8cfbe; 
+  border-bottom: 1px solid #d8cfbe; 
+}
+
+.detail-meta div { 
+  text-align: center; 
+}
+
+.detail-meta .m-val { 
+  font-weight: 600; 
+  color: #1c1a17; 
+  font-size: .9rem; 
+}
+
+.detail-meta .m-lbl { 
+  font-size: .7rem; 
+  color: #9c9285; 
+  text-transform: uppercase; 
+  letter-spacing: .08em; 
+  margin-top: 2px; 
+}
+
+
+.lien-retour { 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 6px; 
+  color: #8a837a; 
+  font-size: 0.875rem; 
+  margin-bottom: 28px; 
+}
+
+.lien-retour:hover { 
+  color: #8b1a2b; 
+}
+
+.section-similaires { 
+  margin-top: 56px; 
+}
+
+.section-similaires h2 { 
+  font-size: 1.8rem; 
+  margin-bottom: 20px; 
+}
+
+.note-livre { 
+  color: #b8912a; 
+  font-size: 0.95rem; 
+  margin: 8px 0; 
+}
+
+.actions-boutons { 
+  display: flex; 
+  gap: 12px; 
+  flex-wrap: wrap; 
+  margin-top: 20px; 
+}
+
+/* Mode responsive tablette et mobile */
+@media (max-width: 768px) {
+  .detail-grid { 
+    grid-template-columns: 1fr; 
+    justify-items: center; 
+    gap: 30px; 
+  }
+}

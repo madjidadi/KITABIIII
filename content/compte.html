@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kitabi - Mon Espace</title>
+  <link rel="stylesheet" href="../style/style.css">
+ <link rel="stylesheet" href="../style/compte.css">
+</head>
+<body>
+
+  <!-- Barre de navigation -->
+  <nav id="navbar"></nav>
+
+  <div class="page compte-dashboard">
+    
+    <!-- Profil de l'utilisateur -->
+    <aside class="dashboard-sidebar">
+      <div class="form-card user-profile-card">
+        <div class="user-avatar">👤</div>
+        <p class="profil-label">Bienvenue de retour</p>
+        <h2 id="user-nom">Chargement...</h2>
+        <p id="user-email" class="profil-email-txt"></p>
+        <button onclick="doLogout()" class="btn btn-outline btn-logout">↩ Se déconnecter</button>
+      </div>
+    </aside>
+
+    <!-- Historique des commandes  -->
+    <main class="dashboard-main">
+      <div class="commandes-header">
+        <div>
+          <h1 class="page-title">Mes commandes</h1>
+          <p class="page-sub" id="nb-cmds">0 commande passée</p>
+          
+          <!-- Bouton de nettoyage  -->
+          <button onclick="viderHistoriqueCommandes()" class="btn btn-outline" style="padding:4px 10px; font-size:0.75rem; margin-top:5px; border-color:rgba(139,26,43,0.2); color:#8b1a2b;">
+            🗑️ Vider l'historique
+          </button>
+        </div>
+        <a href="catalogue.html" class="btn btn-primary btn-small">+ Acheter des livres</a>
+      </div>
+
+      
+      <div id="liste-commandes" class="fade-in-container"></div>
+    </main>
+
+  </div>
+
+  
+  <footer>
+    <div class="f-inner">
+      <span class="f-logo">📖 Kitabi</span>
+      <div class="f-socials">
+        <a href="https://instagram.com" target="_blank" class="social-link">
+          📸 Instagram : <span class="handle-txt">@kitabi.2026</span>
+        </a>
+        <a href="tel:0556359477" class="social-link">
+          📞 Tél : <span class="phone-txt">0556 35 94 77</span>
+        </a>
+      </div>
+      <p>© 2026 Kitabi — Algérie</p>
+    </div>
+  </footer>
+
+  <script src="../javascript/books.js" defer></script>
+ <script src="../javascript/app.js" defer></script>
+  <script src="../javascript/compte.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kitabi - Mon panier</title>
+ <link rel="stylesheet" href="../style/style.css">
+  
+</head>
+<body>
+
+  <!-- Barre de navigation  -->
+  <nav id="navbar"></nav>
+
+  <div class="page panier-page-container">
+    <h1 class="page-title">Mon panier</h1>
+    <p class="page-sub" id="nb-articles">0 article</p>
+
+    <!-- ÉCRAN : Panier vide -->
+    <div id="panier-vide" class="vide-box" style="display:none">
+      <div class="icon">🛒</div>
+      <h2>Votre panier est vide</h2>
+      <p>Vous n'avez pas encore ajouté de livres à votre panier.</p>
+      <a href="catalogue.html" class="btn btn-primary">Découvrir le catalogue</a>
+    </div>
+
+    <!-- ÉCRAN : Contenu du panier actif -->
+    <div id="panier-contenu" class="panier-layout-grid">
+      
+      <!-- Liste des livres à gauche -->
+      <div id="liste-articles" class="articles-list-container"></div>
+      
+      <!-- Facture  -->
+      <aside class="recap-sidebar">
+        <div class="form-card recap-card">
+          <h3>Récapitulatif</h3>
+          
+          <div id="recap-lignes" class="recap-items-lines"></div>
+          
+          <div class="recap-total-line">
+            <span>Montant Total</span>
+            <strong id="total-prix">0 DA</strong>
+          </div>
+          
+          <div id="btn-commander-wrapper" class="action-wrapper"></div>
+          
+          <a href="catalogue.html" class="btn btn-continuer-achats">Continuer mes achats</a>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+ 
+  <footer>
+    <div class="f-inner">
+      <span class="f-logo">📖 Kitabi</span>
+      <nav>
+        <a href="index.html">Accueil</a>
+        <a href="catalogue.html">Catalogue</a>
+        <a href="favoris.html">Favoris</a>
+      </nav>
+      <p>© 2026 Kitabi — Algérie</p>
+    </div>
+  </footer>
+
+  <script src="../javascript/books.js" defer></script>
+ <script src="../javascript/app.js" defer></script>
+ <script src="../javascript/panier.js" defer></script>
+
+</body>
+</html>

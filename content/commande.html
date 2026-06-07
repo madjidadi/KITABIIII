@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kitabi - Validation de commande</title>
+ <link rel="stylesheet" href="../style/style.css">
+  <style>
+    /* Style de secours compact spécifique à cette page finale */
+    .commande-layout { display: grid; grid-template-columns: 1fr 360px; gap: 32px; align-items: start; }
+    .recap-minimal { background: #fdfaf4; border: 1px solid #d8cfbe; border-radius: 16px; padding: 24px; }
+    .recap-minimal h3 { font-size: 1.3rem; margin-bottom: 16px; border-bottom: 1px solid #d8cfbe; padding-bottom: 8px; }
+    .commande-succes-box { text-align: center; padding: 40px 20px; background: #fdfaf4; border: 1px solid #d8cfbe; border-radius: 16px; }
+    .commande-succes-box .icon { font-size: 3.5rem; color: #65a30d; margin-bottom: 16px; }
+  </style>
+</head>
+<body>
+
+  <!-- Barre de navigation dynamique -->
+  <nav id="navbar"></nav>
+
+  <div class="page">
+    <h1 class="page-title">Finaliser ma commande</h1>
+    <p class="page-sub">Remplissez vos informations pour la livraison dans les 58 wilayas</p>
+
+    <!-- ZONE PRINCIPALE : Formulaire de saisie + Récapitulatif du panier -->
+    <div id="zone-formulaire-commande" class="commande-layout">
+      
+      <!-- Formulaire de livraison à gauche -->
+      <div class="form-card">
+        <h2 style="font-size:1.5rem; margin-bottom:20px">Informations de livraison</h2>
+        
+        <form id="form-finaliser-commande">
+          <div class="form-group">
+            <label for="c-nom">Nom complet du destinataire</label>
+            <input type="text" id="c-nom" placeholder="Ahmed Benali" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="c-tel">Numéro de téléphone</label>
+            <input type="tel" id="c-tel" placeholder="0550XXxxXX ou 0660XXxxXX" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="c-wilaya">Wilaya de livraison</label>
+            <!-- Sélecteur initialement vide, JavaScript va y injecter les 58 wilayas -->
+            <select id="c-wilaya" style="padding: 12px 16px; border-radius: 12px; border: 1px solid #d8cfbe; background: rgba(244,239,228,.6); font-size: .875rem;" required>
+              <option value="">Sélectionnez votre wilaya</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="c-adresse">Adresse exacte de livraison</label>
+            <input type="text" id="c-adresse" placeholder="Rue, Quartier, Numéro de maison" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:12px; padding:14px">
+            📦 Confirmer et commander (Paiement cash à la livraison)
+          </button>
+        </form>
+      </div>
+
+      <!-- Bloc récapitulatif des coûts à droite -->
+      <aside class="recap-minimal">
+        <h3>Votre panier</h3>
+        <div id="commande-articles-recap" style="display:flex; flex-direction:column; gap:8px; margin-bottom:16px;"></div>
+        <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid #d8cfbe; padding-top:12px;">
+          <span style="font-weight:600">Total à payer :</span>
+          <strong id="commande-total-txt" style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; color:#8b1a2b">0 DA</strong>
+        </div>
+      </aside>
+
+    </div>
+
+    <!-- ZONE DE SUCCÈS  -->
+    <div id="zone-succes-commande" class="commande-succes-box" style="display:none;">
+      <div class="icon">✓</div>
+      <h2>Commande validée avec succès !</h2>
+      <p id="msg-succes-cmd-id" style="font-size:1.1rem; font-weight:600; color:#1c1a17; margin-bottom:8px;"></p>
+      <p style="color:#8a837a; margin-bottom:24px;">Le livreur vous contactera par téléphone avant son passage. Merci pour votre confiance !</p>
+      <a href="compte.html" class="btn btn-primary">Suivre mes commandes</a>
+    </div>
+
+  </div>
+
+
+  <footer>
+    <div class="f-inner">
+      <span class="f-logo">📖 Kitabi</span>
+      <nav>
+        <a href="index.html">Accueil</a>
+        <a href="catalogue.html">Catalogue</a>
+        <a href="favoris.html">Favoris</a>
+      </nav>
+      <p>© 2026 Kitabi — Algérie</p>
+    </div>
+  </footer>
+
+  
+    <script src="../javascript/books.js" defer></script>
+ <script src="../javascript/app.js" defer></script>
+ <script src="../javascript/commande.js" defer></script>
+
+</body>
+</html>
